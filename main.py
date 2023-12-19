@@ -1,39 +1,44 @@
 import random
+
 from art import logo as logo
 from art import vs as vs
 from game_data import data as my_data
 
 #print art
 print(logo)
+print("Choose which persona has the most social media followers. \n")
 
+#enter game
+game = True
+while game:
 #first random selection
-rand_person1 = random.choice(my_data)
-print(f"{rand_person1.get('name')}, Followers: {rand_person1.get('follower_count')}")
+    rand_person1 = random.choice(my_data)
+    print(f"{rand_person1.get('name')}, Followers: {rand_person1.get('follower_count')}")
 
 #print art
-print(vs)
+    print(vs)
 
 #second random selection
-rand_person2 = random.choice(my_data)
-print(f"{rand_person2.get('name')}, Followers: {rand_person2.get('follower_count')}\n")
+    rand_person2 = random.choice(my_data)
+    print(f"{rand_person2.get('name')}, Followers: {rand_person2.get('follower_count')}\n")
 
-#prompt user for input
-user_choice = int(input("Choose which persona has the most social media followers. \n" +
-      "Enter 1 or 2 for your choice: \n"))
-#print(user_choice)
+ #prompt user for input
+    user_choice = int(input("Enter 1 or 2 for your choice: \n"))
 
 #compare random selections and assign to winner
-if int(rand_person1.get('follower_count')) > int(rand_person2.get('follower_count')):
-    winner = 1
-    print(f"{rand_person1.get('name')} wins with {rand_person1.get('follower_count')} followers!")
-else:
-    winner = 2
-    print(f"{rand_person2.get('name')} wins with {rand_person2.get('follower_count')} followers!")
-print(winner)
+    if int(rand_person1.get('follower_count')) > int(rand_person2.get('follower_count')):
+        winner = 1
+        print(f"{rand_person1.get('name')} wins with {rand_person1.get('follower_count')} followers!")
+    else:
+        winner = 2
+        print(f"{rand_person2.get('name')} wins with {rand_person2.get('follower_count')} followers!")
+
+    print(f"You chose: {user_choice}")
+
 
 #compare user choice to winner
-if user_choice == winner:
-    print("You win! Keep guessing: \n")
-else:
-    print("Sorry :( Better luck next time.")
-
+    if user_choice != winner:
+        print("You Lose :(  Sorry. Better luck next time.")
+        game = False
+    else:
+        print("You chose correctly! Keep guessing: \n")
