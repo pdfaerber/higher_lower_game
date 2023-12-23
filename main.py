@@ -17,6 +17,7 @@ while game:
     rand_person1 = random.choice(my_data)
     rand_person2 = random.choice(my_data)
 
+    # make sure there is not a tie
     if rand_person1 == rand_person2:
         rand_person2 = random.choice(my_data)
     else:
