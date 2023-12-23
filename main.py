@@ -11,6 +11,7 @@ print("Choose which persona has the most social media followers. \n")
 
 #enter game
 game = True
+score = 0
 while game:
 
     #first random selection
@@ -48,5 +49,7 @@ while game:
         print("You Lose :(  Sorry. Better luck next time.")
         game = False
     else:
+        score += 1
         print("You chose correctly! Keep guessing: \n")
+        print(f"Your score is: {score}")
 
